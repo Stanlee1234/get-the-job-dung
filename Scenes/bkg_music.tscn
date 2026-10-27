@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://eu721k2j20lg"]
+
+[ext_resource type="AudioStream" uid="uid://c535i0rf01otq" path="res://Assets/Soul Mind - Es Jammy Jam.mp3" id="1_3w8s6"]
+
+[node name="BkgMusic" type="AudioStreamPlayer2D" unique_id=1048095729]
+stream = ExtResource("1_3w8s6")
+volume_db = -12.0

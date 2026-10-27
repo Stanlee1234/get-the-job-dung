@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bem2q00dphkv2"]
+
+[ext_resource type="Texture2D" uid="uid://l6yrf8aouh6p" path="res://Assets/bug.png" id="1_i667w"]
+[ext_resource type="Script" uid="uid://desrd7wylw7ko" path="res://Scripts/beetle.gd" id="1_u0t3v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i667w"]
+atlas = ExtResource("1_i667w")
+region = Rect2(0, 0, 64, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0t3v"]
+atlas = ExtResource("1_i667w")
+region = Rect2(0, 0, 64, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yet8e"]
+atlas = ExtResource("1_i667w")
+region = Rect2(64, 0, 64, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_soorf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i667w")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0t3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yet8e")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yet8e"]
+radius = 16.0
+height = 48.0
+
+[node name="Beetle" type="CharacterBody2D" unique_id=65740635]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_u0t3v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2072744123]
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_soorf")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=127364362]
+position = Vector2(-4, 4)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_yet8e")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=68913880]
+zoom = Vector2(5, 5)
