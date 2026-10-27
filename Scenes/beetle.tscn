@@ -34,26 +34,39 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk",
-"speed": 5.0
+"speed": 7.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yet8e"]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_u0t3v"]
+points = PackedVector2Array(18, -20, 18, 16, 8.000001, 24, -4, 28, -15.999999, 16, -20, 8.000001, -20, -20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58jf6"]
 radius = 16.0
 height = 48.0
 
 [node name="Beetle" type="CharacterBody2D" unique_id=65740635]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_u0t3v")
+speed = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2072744123]
+z_index = -1
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_soorf")
-animation = &"idle"
+animation = &"walk"
+frame_progress = 0.70712376
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=127364362]
+[node name="TempHitbox" type="CollisionShape2D" parent="." unique_id=127364362]
+visible = false
 position = Vector2(-4, 4)
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_yet8e")
+shape = SubResource("ConvexPolygonShape2D_u0t3v")
+disabled = true
+
+[node name="RegularHitbox2" type="CollisionShape2D" parent="." unique_id=624142961]
+position = Vector2(0, 5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_58jf6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=68913880]
 zoom = Vector2(5, 5)
